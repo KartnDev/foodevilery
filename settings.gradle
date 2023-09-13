@@ -1,0 +1,13 @@
+rootProject.name = 'foodevilery-all'
+
+includeProject('commonlib-starter', 'common/commonlib-starter')
+includeProject('commonlib', 'common/commonlib')
+includeProject('restaurant', 'app/restaurant')
+includeProject('courier', 'app/courier')
+includeProject('user', 'app/user')
+includeProject('order', 'app/order')
+
+void includeProject(String name, String path) {
+    include ":$name"
+    project(":$name").projectDir = new File(settingsDir, "$path")
+}

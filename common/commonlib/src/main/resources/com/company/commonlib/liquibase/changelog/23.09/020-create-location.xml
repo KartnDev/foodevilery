@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="kartondev">
+        <createTable tableName="foodlib_location">
+            <column name="ID" type="${uuid.type}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="LATITUDE" type="JAVA.LANG.DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LONGITUDE" type="JAVA.LANG.DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COUNTRY" type="varchar(255)"/>
+            <column name="CITY_OR_PLACEMENT" type="varchar(255)"/>
+            <column name="ADDRESS_NO" type="varchar(255)"/>
+
+            <column name="last_modified_by" type="varchar(255)"/>
+            <column name="last_modified_date" type="timestamp"/>
+            <column name="created_by" type="varchar(255)"/>
+            <column name="created_date" type="timestamp"/>
+            <column name="VERSION" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

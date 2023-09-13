@@ -1,0 +1,33 @@
+plugins {
+    id 'io.jmix' version '2.0.2'
+}
+
+apply plugin: 'java-library'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'com.vaadin'
+
+archivesBaseName = 'commonlib-starter'
+group = 'com.company'
+version = '0.0.1-SNAPSHOT'
+
+
+jmix {
+    bomVersion = '2.0.2'
+    projectId = 'libstr'
+}
+
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://global.repo.jmix.io/repository/public'
+    }
+}
+
+dependencies {
+    api project(':commonlib')
+
+    implementation 'io.jmix.core:jmix-core'
+
+    implementation 'org.springframework.boot:spring-boot-autoconfigure'
+}
